@@ -11,6 +11,7 @@
             "project": "${workspaceFolder}",
             "port": 6007,
             "debugServer": 6006,
+            "fixed_fps": 60,
             "debug_collisions": false,
             "debug_paths": false,
             "debug_navigation": false,

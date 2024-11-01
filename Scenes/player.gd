@@ -27,6 +27,10 @@ func _physics_process(_delta: float) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	if (velocity.x > 0):
-		global_position = Vector2(0, velocity.y)
+		print('x',velocity.x)
+		print('y:',velocity.y)
+		global_position = Vector2(0, global_position.y)
 	else:
-		global_position = Vector2(velocity.x, 0)
+		print('x',velocity.x)
+		print('y:',velocity.y)
+		global_position = Vector2(global_position.x, 0)
