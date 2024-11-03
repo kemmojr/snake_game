@@ -181,6 +181,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_7uwui")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -188,25 +190,30 @@ position = Vector2(-2, 0)
 scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAD//w0AAAAAAAYAAAD//wwAAAAAAAUAAAD//wsAAAAAAAUAAAD//woAAAAAAAUAAAD//wkAAAAAAAUAAAD//wgAAAAAAAUAAAD//wcAAAAAAAUAAAD//wYAAAAAAAUAAAD//wUAAAAAAAUAAAD//wQAAAAAAAUAAAD//wMAAAAAAAUAAAD//wIAAAAAAAUAAAD//wEAAAAAAAUAAAD//wAAAAAAAAUAAAAYAA0AAAACAAYAAAAYAAwAAAACAAUAAAAYAAsAAAACAAUAAAAYAAoAAAACAAUAAAAYAAkAAAACAAUAAAAYAAgAAAACAAUAAAAYAAcAAAACAAUAAAAYAAYAAAACAAUAAAAYAAUAAAACAAUAAAAYAAQAAAACAAUAAAAYAAMAAAACAAUAAAAYAAIAAAACAAUAAAAYAAEAAAACAAUAAAAYAAAAAAACAAUAAAAAAP//AAABAAQAAAABAP//AAABAAQAAAACAP//AAABAAQAAAADAP//AAABAAQAAAAEAP//AAABAAQAAAAFAP//AAABAAQAAAAGAP//AAABAAQAAAAHAP//AAABAAQAAAAIAP//AAABAAQAAAAJAP//AAABAAQAAAAKAP//AAABAAQAAAALAP//AAABAAQAAAAMAP//AAABAAQAAAANAP//AAABAAQAAAAOAP//AAABAAQAAAAPAP//AAABAAQAAAAQAP//AAABAAQAAAARAP//AAABAAQAAAASAP//AAABAAQAAAATAP//AAABAAQAAAAUAP//AAABAAQAAAAVAP//AAABAAQAAAAWAP//AAABAAQAAAAXAP//AAABAAQAAAAYAP//AAACAAQAAAD/////AAAAAAQAAAAAAA0AAAABAAYAAAABAA0AAAABAAYAAAACAA0AAAABAAYAAAADAA0AAAABAAYAAAAEAA0AAAABAAYAAAAFAA0AAAABAAYAAAAGAA0AAAABAAYAAAAHAA0AAAABAAYAAAAIAA0AAAABAAYAAAAJAA0AAAABAAYAAAAKAA0AAAABAAYAAAALAA0AAAABAAYAAAAMAA0AAAABAAYAAAANAA0AAAABAAYAAAAOAA0AAAABAAYAAAAPAA0AAAABAAYAAAAQAA0AAAABAAYAAAARAA0AAAABAAYAAAASAA0AAAABAAYAAAATAA0AAAABAAYAAAAUAA0AAAABAAYAAAAVAA0AAAABAAYAAAAWAA0AAAABAAYAAAAXAA0AAAABAAYAAAA=")
 tile_set = SubResource("TileSet_4623l")
-
-[node name="Player" parent="." instance=ExtResource("3_h5yyu")]
-position = Vector2(32, 533)
-scale = Vector2(2.64, 2.64)
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 315)
+metadata/_edit_lock_ = true
 
 [node name="Food" parent="." instance=ExtResource("4_lvf58")]
 position = Vector2(343, 368)
+metadata/_edit_lock_ = true
 
 [node name="Food2" parent="." instance=ExtResource("4_lvf58")]
 position = Vector2(439, 493)
+metadata/_edit_lock_ = true
 
 [node name="Food3" parent="." instance=ExtResource("4_lvf58")]
 position = Vector2(905, 450)
+metadata/_edit_lock_ = true
 
 [node name="Food4" parent="." instance=ExtResource("4_lvf58")]
 position = Vector2(714, 217)
+metadata/_edit_lock_ = true
 
 [node name="Food5" parent="." instance=ExtResource("4_lvf58")]
 position = Vector2(114, 210)
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("3_h5yyu")]
