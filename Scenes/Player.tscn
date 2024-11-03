@@ -72,7 +72,7 @@ scale = Vector2(0.775, 0.775)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 4)
 sprite_frames = SubResource("SpriteFrames_d2apc")
-animation = &"body"
+animation = &"1st"
 autoplay = "1st"
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

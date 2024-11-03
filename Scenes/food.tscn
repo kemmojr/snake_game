@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://btcyhtrom4ou1"]
+
+[ext_resource type="Script" path="res://Scenes/food.gd" id="1_tud30"]
+[ext_resource type="Texture2D" uid="uid://c0phvvp32gj28" path="res://Assets/Items/Fruits/apple_logo_small.png" id="1_yv0fy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1j7u7"]
+radius = 85.0
+
+[node name="Food" type="Area2D"]
+scale = Vector2(0.289083, 0.289083)
+script = ExtResource("1_tud30")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -15)
+texture = ExtResource("1_yv0fy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1j7u7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

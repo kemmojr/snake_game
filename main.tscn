@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://3sslapdaren1"]
+[gd_scene load_steps=7 format=4 uid="uid://3sslapdaren1"]
 
 [ext_resource type="Texture2D" uid="uid://d3p3h0pej4kwm" path="res://Assets/Background/Green.png" id="1_7uwui"]
 [ext_resource type="Texture2D" uid="uid://dcahn5x35wrhy" path="res://Assets/Terrain/Terrain (16x16).png" id="2_nx5b3"]
 [ext_resource type="PackedScene" uid="uid://dv7yckoxncppr" path="res://Scenes/Player.tscn" id="3_h5yyu"]
+[ext_resource type="PackedScene" uid="uid://btcyhtrom4ou1" path="res://Scenes/food.tscn" id="4_lvf58"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtvkc"]
 texture = ExtResource("2_nx5b3")
@@ -188,9 +189,24 @@ scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAD//w0AAAAAAAYAAAD//wwAAAAAAAUAAAD//wsAAAAAAAUAAAD//woAAAAAAAUAAAD//wkAAAAAAAUAAAD//wgAAAAAAAUAAAD//wcAAAAAAAUAAAD//wYAAAAAAAUAAAD//wUAAAAAAAUAAAD//wQAAAAAAAUAAAD//wMAAAAAAAUAAAD//wIAAAAAAAUAAAD//wEAAAAAAAUAAAD//wAAAAAAAAUAAAAYAA0AAAACAAYAAAAYAAwAAAACAAUAAAAYAAsAAAACAAUAAAAYAAoAAAACAAUAAAAYAAkAAAACAAUAAAAYAAgAAAACAAUAAAAYAAcAAAACAAUAAAAYAAYAAAACAAUAAAAYAAUAAAACAAUAAAAYAAQAAAACAAUAAAAYAAMAAAACAAUAAAAYAAIAAAACAAUAAAAYAAEAAAACAAUAAAAYAAAAAAACAAUAAAAAAP//AAABAAQAAAABAP//AAABAAQAAAACAP//AAABAAQAAAADAP//AAABAAQAAAAEAP//AAABAAQAAAAFAP//AAABAAQAAAAGAP//AAABAAQAAAAHAP//AAABAAQAAAAIAP//AAABAAQAAAAJAP//AAABAAQAAAAKAP//AAABAAQAAAALAP//AAABAAQAAAAMAP//AAABAAQAAAANAP//AAABAAQAAAAOAP//AAABAAQAAAAPAP//AAABAAQAAAAQAP//AAABAAQAAAARAP//AAABAAQAAAASAP//AAABAAQAAAATAP//AAABAAQAAAAUAP//AAABAAQAAAAVAP//AAABAAQAAAAWAP//AAABAAQAAAAXAP//AAABAAQAAAAYAP//AAACAAQAAAD/////AAAAAAQAAAAAAA0AAAABAAYAAAABAA0AAAABAAYAAAACAA0AAAABAAYAAAADAA0AAAABAAYAAAAEAA0AAAABAAYAAAAFAA0AAAABAAYAAAAGAA0AAAABAAYAAAAHAA0AAAABAAYAAAAIAA0AAAABAAYAAAAJAA0AAAABAAYAAAAKAA0AAAABAAYAAAALAA0AAAABAAYAAAAMAA0AAAABAAYAAAANAA0AAAABAAYAAAAOAA0AAAABAAYAAAAPAA0AAAABAAYAAAAQAA0AAAABAAYAAAARAA0AAAABAAYAAAASAA0AAAABAAYAAAATAA0AAAABAAYAAAAUAA0AAAABAAYAAAAVAA0AAAABAAYAAAAWAA0AAAABAAYAAAAXAA0AAAABAAYAAAA=")
 tile_set = SubResource("TileSet_4623l")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_h5yyu")]
+[node name="Player" parent="." instance=ExtResource("3_h5yyu")]
 position = Vector2(32, 533)
 scale = Vector2(2.64, 2.64)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 315)
+
+[node name="Food" parent="." instance=ExtResource("4_lvf58")]
+position = Vector2(343, 368)
+
+[node name="Food2" parent="." instance=ExtResource("4_lvf58")]
+position = Vector2(439, 493)
+
+[node name="Food3" parent="." instance=ExtResource("4_lvf58")]
+position = Vector2(905, 450)
+
+[node name="Food4" parent="." instance=ExtResource("4_lvf58")]
+position = Vector2(714, 217)
+
+[node name="Food5" parent="." instance=ExtResource("4_lvf58")]
+position = Vector2(114, 210)

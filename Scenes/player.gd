@@ -24,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = 0
 		velocity.x = SPEED
 	
-	move_and_slide()
+	move_and_collide(velocity * _delta)
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	var screenSize = get_viewport().get_visible_rect().size
