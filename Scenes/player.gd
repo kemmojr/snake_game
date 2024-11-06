@@ -5,11 +5,13 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const segmentX = 15
 const segmentY = 14
+signal rotatedTo(new_rotation: float)
 @onready var current = $"."
 
 
-func _physics_process(_delta: float) -> void:
-	
+func _physics_process(delta: float) -> void:
+
+	var old_rotation = rotation
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
 		velocity.x = 0
@@ -36,8 +38,9 @@ func _physics_process(_delta: float) -> void:
 		if rotation - Vector2.RIGHT.angle() != 0:
 			rotation = Vector2.RIGHT.angle()
 
-	
-	move_and_collide(velocity * _delta)
+	if (old_rotation != rotation):
+		rotatedTo.emit(rotation)
+	move_and_collide(velocity * delta)
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	var screenSize = get_viewport().get_visible_rect().size
@@ -68,3 +71,7 @@ func eat(direction: Vector2):
 	current.add_child(collider)	
 
 
+
+
+func _on_rotated_to(new_rotation:float) -> void:
+	pass # Replace with function body.
