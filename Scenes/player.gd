@@ -14,27 +14,27 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		velocity.x = 0
 		velocity.y = 0 - SPEED
-		if rotation - Vector2.UP.angle() != 0:
-			rotate(Vector2.UP.angle())
+		if (rotation - Vector2.UP.angle()) != 0:
+			rotation = Vector2.UP.angle()
 
 		
 	if Input.is_action_just_pressed("down"):
 		velocity.x = 0
 		velocity.y = SPEED
 		if rotation - Vector2.DOWN.angle() != 0:
-			rotate(Vector2.DOWN.angle())
+			rotation = Vector2.DOWN.angle()
 
 	if Input.is_action_just_pressed("left"):
 		velocity.y = 0
 		velocity.x = 0 - SPEED
 		if rotation - Vector2.LEFT.angle() != 0:
-			rotate(Vector2.LEFT.angle())
+			rotation = Vector2.LEFT.angle()
 		
 	if Input.is_action_just_pressed('right') or (velocity.x == 0 and velocity.y == 0):
 		velocity.y = 0
 		velocity.x = SPEED
 		if rotation - Vector2.RIGHT.angle() != 0:
-			rotate(Vector2.RIGHT.angle())
+			rotation = Vector2.RIGHT.angle()
 
 	
 	move_and_collide(velocity * _delta)

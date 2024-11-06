@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dv7yckoxncppr"]
+[gd_scene load_steps=12 format=3 uid="uid://dv7yckoxncppr"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_hmclp"]
 [ext_resource type="Texture2D" uid="uid://dcahn5x35wrhy" path="res://Assets/Terrain/Terrain (16x16).png" id="2_rj8h4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7leat"]
-size = Vector2(15, 14)
+size = Vector2(14, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bh1co"]
 atlas = ExtResource("2_rj8h4")
@@ -57,15 +57,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xs0f0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbd4p"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4dgq"]
 atlas = ExtResource("2_rj8h4")
 region = Rect2(192, 144, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_s2ios"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7yln1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xs0f0")
+"texture": SubResource("AtlasTexture_l4dgq")
 }],
 "loop": true,
 "name": &"default",
@@ -73,42 +76,72 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(3, 18)
-rotation = 1.57079
 motion_mode = 1
 script = ExtResource("1_hmclp")
+metadata/_edit_lock_ = true
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0.25, -0.25)
 shape = SubResource("RectangleShape2D_7leat")
+metadata/_edit_lock_ = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Collider"]
 unique_name_in_owner = true
-position = Vector2(-0.5, -1)
 sprite_frames = SubResource("SpriteFrames_d2apc")
 animation = &"1st"
 autoplay = "1st"
+metadata/_edit_lock_ = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-0.249999, -1.25)
-scale = Vector2(0.775, 0.775)
+rect = Rect2(-8, -8, 16, 16)
+metadata/_edit_lock_ = true
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(-0.25, 7.75)
+position = Vector2(-8, 0)
 node_a = NodePath("..")
 node_b = NodePath("StaticBody2D")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="PinJoint2D"]
-position = Vector2(0, 13)
-collision_layer = 0
-collision_mask = 0
+position = Vector2(-8, 0)
+scale = Vector2(1, 0.998)
 
-[node name="Collider_2" type="CollisionShape2D" parent="PinJoint2D/StaticBody2D"]
-position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_7leat")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinJoint2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_pbd4p")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PinJoint2D/StaticBody2D/Collider_2"]
-sprite_frames = SubResource("SpriteFrames_s2ios")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PinJoint2D/StaticBody2D/CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_7yln1")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="PinJoint2D/StaticBody2D"]
+position = Vector2(-8, 0)
+node_a = NodePath("..")
+node_b = NodePath("StaticBody2D")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PinJoint2D/StaticBody2D/PinJoint2D"]
+position = Vector2(-8, 0)
+scale = Vector2(1, 0.998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_pbd4p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D/CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_7yln1")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D"]
+position = Vector2(-8, 0)
+node_a = NodePath("..")
+node_b = NodePath("StaticBody2D")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D/PinJoint2D"]
+position = Vector2(-8, 0)
+scale = Vector2(1, 0.998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_pbd4p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D/CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_7yln1")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
