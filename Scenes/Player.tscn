@@ -108,33 +108,5 @@ shape = SubResource("RectangleShape2D_pbd4p")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PinJoint2D/StaticBody2D/CollisionShape2D"]
 sprite_frames = SubResource("SpriteFrames_7yln1")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="PinJoint2D/StaticBody2D"]
-node_a = NodePath("..")
-node_b = NodePath("StaticBody2D")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="PinJoint2D/StaticBody2D/PinJoint2D"]
-position = Vector2(-16, 0)
-scale = Vector2(1, 0.998)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D"]
-shape = SubResource("RectangleShape2D_pbd4p")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D/CollisionShape2D"]
-sprite_frames = SubResource("SpriteFrames_7yln1")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D"]
-node_a = NodePath("..")
-node_b = NodePath("StaticBody2D")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D/PinJoint2D"]
-position = Vector2(-16, 0)
-scale = Vector2(1, 0.998)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D"]
-shape = SubResource("RectangleShape2D_pbd4p")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D/PinJoint2D/StaticBody2D/CollisionShape2D"]
-sprite_frames = SubResource("SpriteFrames_7yln1")
-
 [connection signal="rotatedTo" from="." to="PinJoint2D" method="_on_player_rotated_to"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
