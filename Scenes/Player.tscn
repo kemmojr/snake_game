@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dv7yckoxncppr"]
+[gd_scene load_steps=12 format=3 uid="uid://dv7yckoxncppr"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_hmclp"]
 [ext_resource type="Texture2D" uid="uid://dcahn5x35wrhy" path="res://Assets/Terrain/Terrain (16x16).png" id="2_rj8h4"]
 [ext_resource type="Script" path="res://Scenes/pin_joint_2d.gd" id="3_77aol"]
+[ext_resource type="PackedScene" uid="uid://bp72il7gqh2du" path="res://snake_segment.tscn" id="4_0ympq"]
+[ext_resource type="Script" path="res://Scenes/second_joint.gd" id="5_fd1wv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7leat"]
 size = Vector2(14, 14)
@@ -58,24 +60,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbd4p"]
-size = Vector2(16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l4dgq"]
-atlas = ExtResource("2_rj8h4")
-region = Rect2(192, 144, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7yln1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l4dgq")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_hmclp")
@@ -98,15 +82,17 @@ node_a = NodePath("..")
 node_b = NodePath("StaticBody2D")
 script = ExtResource("3_77aol")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="PinJoint2D"]
+[node name="StaticBody2D" parent="PinJoint2D" instance=ExtResource("4_0ympq")]
 position = Vector2(-16, 0)
-scale = Vector2(1, 0.998)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PinJoint2D/StaticBody2D"]
-shape = SubResource("RectangleShape2D_pbd4p")
+[node name="PinJoint2D" type="PinJoint2D" parent="PinJoint2D/StaticBody2D"]
+node_a = NodePath("..")
+node_b = NodePath("StaticBody2D")
+script = ExtResource("5_fd1wv")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PinJoint2D/StaticBody2D/CollisionShape2D"]
-sprite_frames = SubResource("SpriteFrames_7yln1")
+[node name="StaticBody2D" parent="PinJoint2D/StaticBody2D/PinJoint2D" instance=ExtResource("4_0ympq")]
+position = Vector2(-16, 0)
 
 [connection signal="rotatedTo" from="." to="PinJoint2D" method="_on_player_rotated_to"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="rotatedTo" from="PinJoint2D" to="PinJoint2D/StaticBody2D/PinJoint2D" method="_on_pin_joint_2d_rotated_to"]
