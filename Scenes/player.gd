@@ -45,13 +45,12 @@ func _physics_process(delta: float) -> void:
         print("v",velocity)
         print("old",old_rotation)
         print("current", current)
-        print("calc",(abs(old_rotation) - abs(rotation)))
-        var target_rotation = atan2(velocity.y, velocity.x)
-        var angle_difference = target_rotation - current
-        
-        # Normalize the angle difference to [-π, π]
-        angle_difference = fmod(angle_difference + PI, TAU) - PI
-        rotatedTo.emit(abs(old_rotation) - abs(rotation))
+        print("calc",(old_rotation - rotation), "\n")
+       
+        if old_rotation - rotation < -(PI + (PI/2) - PI/8):
+            rotatedTo.emit(PI/2)
+        else:
+            rotatedTo.emit(old_rotation - rotation)
     move_and_collide(velocity * delta)
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
