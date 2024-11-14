@@ -15,26 +15,26 @@ func _physics_process(delta: float) -> void:
 
     var old_rotation = rotation
     # Handle jump.
-    if Input.is_action_just_pressed("jump"):
+    if Input.is_action_just_pressed("jump") && !(velocity.x == 0 && velocity.y == SPEED):
         velocity.x = 0
         velocity.y = 0 - SPEED
         if (rotation - Vector2.UP.angle()) != 0:
             rotation = Vector2.UP.angle()
 
         
-    if Input.is_action_just_pressed("down"):
+    if Input.is_action_just_pressed("down") && !(velocity.x == 0 && velocity.y == 0 - SPEED):
         velocity.x = 0
         velocity.y = SPEED
         if rotation - Vector2.DOWN.angle() != 0:
             rotation = Vector2.DOWN.angle()
 
-    if Input.is_action_just_pressed("left"):
+    if Input.is_action_just_pressed("left") && !(velocity.y == 0 && velocity.x == SPEED):
         velocity.y = 0
         velocity.x = 0 - SPEED
         if rotation - Vector2.LEFT.angle() != 0:
             rotation = Vector2.LEFT.angle()
         
-    if Input.is_action_just_pressed('right') or (velocity.x == 0 and velocity.y == 0):
+    if Input.is_action_just_pressed('right') && !(velocity.y == 0 && velocity.x == 0 - SPEED) || (velocity.x == 0 and velocity.y == 0) :
         velocity.y = 0
         velocity.x = SPEED
         if rotation - Vector2.RIGHT.angle() != 0:
