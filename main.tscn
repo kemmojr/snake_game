@@ -217,3 +217,4 @@ position = Vector2(114, 210)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_h5yyu")]
+scale = Vector2(2.78606, 2.78606)
