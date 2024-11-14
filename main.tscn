@@ -200,21 +200,6 @@ metadata/_edit_lock_ = true
 position = Vector2(343, 368)
 metadata/_edit_lock_ = true
 
-[node name="Food2" parent="." instance=ExtResource("4_lvf58")]
-position = Vector2(439, 493)
-metadata/_edit_lock_ = true
-
-[node name="Food3" parent="." instance=ExtResource("4_lvf58")]
-position = Vector2(905, 450)
-metadata/_edit_lock_ = true
-
-[node name="Food4" parent="." instance=ExtResource("4_lvf58")]
-position = Vector2(714, 217)
-metadata/_edit_lock_ = true
-
-[node name="Food5" parent="." instance=ExtResource("4_lvf58")]
-position = Vector2(114, 210)
-metadata/_edit_lock_ = true
-
 [node name="Player" parent="." instance=ExtResource("3_h5yyu")]
+position = Vector2(22, 591)
 scale = Vector2(2.78606, 2.78606)
