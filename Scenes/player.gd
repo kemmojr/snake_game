@@ -2,15 +2,15 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const gridTileSize = 26.0
 const segmentX = 15
 const segmentY = 14
 
 signal rotatedTo(new_rotation: float)
 
 @onready var current = $"."
-
-
+var currentPos = Vector2(0,0)
+var currentDirection = ""
 func _physics_process(delta: float) -> void:
 
     var old_rotation = rotation
